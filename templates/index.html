@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Job Salary</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("https://1.bp.blogspot.com/-5Pin8K4fmpk/YKm8mAYtHqI/AAAAAAAAADU/PAY_xPitcVwJpSCnfkhvjUYjutHlbRO0ACLcBGAsYHQ/s16000/img.png");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+img {
+  height: 15%;
+  position: relative;
+  top: 198px;
+  left:520px;
+}
+
+.hero-text button {
+  border: none;
+  border-radius: 25px;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #FF0000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #FFFFFF;
+  color:#FFFFFF;
+}
+.form-group{
+  text-align: center; 
+  color: white;
+}
+.content{
+  background-image: linear-gradient(rgba(0, 0, 0,0.6), rgba(0, 0, 0,0.6)),url("https://www.glassdoor.com/blog/app/uploads/sites/2/iStock-503896112-e1517014906297-1024x450.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+}
+.content .container{
+  position: center;
+}
+</style>
+</head>
+<body>
+<div class="hero-image">
+  <img src="https://1.bp.blogspot.com/-9mevEF74A90/YKnOg3hYaYI/AAAAAAAAADs/EDGAFsM_hEoy2_-MopFC3QoJXqnTi5giQCLcBGAsYHQ/s320/Logo.png" alt="Avatar" style="width:40px">>
+  <div class="hero-text">
+   <button><a href="https://www.youtube.com/playlist?list=PLoTO6bzJOgM3AGsCCDgnxH94VHxzObvFX" target="popup">Click Here To Visit Video and Deployment Of Project</a></button>
+ </div>
+</div>
+<body>
+<div class="content">
+ <div class="login">
+        <marquee width="100%" direction="right" height="100px" >
+           <h1 style="color:White; text-align:center;">UK Job Salary Prediction</h1>
+        </marquee>
+<!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<form action='index.php' method=
+        <br> 
+        <div class="form-group">
+          {{ prediction_text }}
+        </div>
+		<br>
+        <div class="container">           
+	      	     <div class="form-group">
+		 <label for="ContractTime">ContractTime</label>
+		      <select class="form-control" name="ContractTime">
+			        <option value=2>permanent</option>
+				<option value=1>contract</option>
+                       </select>
+	</div>	
+        <br>
+	     <div class="form-group">
+		 <label for="Category">Category</label>
+		      <select class="form-control" name="Category">
+			        <option value=9>Engineering Jobs</option>
+				<option value=11>HR & Recruitment Jobs</option>
+				<option value=1>Accounting & Finance Jobs</option>
+				<option value=12>Healthcare & Nursing Jobs</option>
+				<option value=19>Other/General Jobs</option>
+				<option value=13>Hospitality & Catering Jobs</option>
+				<option value=14>IT Jobs</option>
+				<option value=6>Customer Services Jobs</option>
+				<option value=29>Travel Jobs</option>
+				<option value=24>Sales Jobs</option>
+				<option value=18>Manufacturing Jobs</option>
+				<option value=27>Teaching Jobs</option>
+				<option value=5>Creative & Design Jobs</option>
+				<option value=28>Trade & Construction Jobs</option>
+				<option value=22>Property Jobs</option>
+				<option value=2>Admin Jobs</option>
+				<option value=15>Legal Jobs</option>
+				<option value=23>Retail Jobs</option>
+				<option value=4>Consultancy Jobs</option>
+				<option value=8>Energy, Oil & Gas Jobs</option>
+				<option value=16>Logistics & Warehouse Jobs</option>
+				<option value=20>PR, Advertising & Marketing Jobs</option>
+				<option value=3>Charity & Voluntary Jobs</option>
+				<option value=25>Scientific & QA Jobs</option>
+				<option value=17>Maintenance Jobs</option>
+				<option value=7>Domestic help & Cleaning Jobs</option>
+				<option value=26>Social work Jobs</option>
+				<option value=10>Graduate Jobs</option>
+				<option value=21>Part time Jobs</option>
+
+                       </select>
+	</div>	
+        <br>
+	     <div class="form-group">
+		 <label for="SalaryRaw">SalaryRaw</label>
+		      <select class="form-control" name="SalaryRaw">
+				<option value=21127>20000 - 30000/annum 20-30K</option>
+				<option value=32187>25000 - 35000/annum 25-35K</option>
+				<option value=21322>20000 - 40000/annum 20-40K</option>
+				<option value=31600>25000 - 30000/annum 25K-30K negotiable</option>
+				<option value=21130>20000 - 30000/annum 20K to 30K</option>
+				<option value=16218>18000 - 26000/annum TO 26K BASIC + COMM + BENS</option>
+				<option value=16243>18000 - 28000/annum 18 - 28K BASIC + COMM + BENS</option>
+				<option value=13482>17000 - 25000/annum 17k - 20k OTE 25k</option>
+				<option value=49099>35000 - 40000/annum c40000 + Excellent Benefits</option>
+				<option value=55013>40000 - 50000/annum 40K-50K</option>
+				<option value=49563>35000 - 45000/annum 35K-45K</option>
+				<option value=90408>Upto 16,000 per annum + Tips (IRO 3K Per Annum)</option>
+				<option value=25626>22000/annum</option>
+				<option value=14471>18,000 per annum + Tips (IRO 120 Per Month)</option>
+				<option value=47500>34000 - 45000/annum to 45K</option>
+				<option value=46646>33000 - 34000/annum + benefits</option>
+				<option value=47495>34000 - 45000/annum</option>
+				<option value=90799>Upto 9 per hour</option>
+				<option value=51667>36000 - 47000/annum 36K-47K</option>
+				<option value=38090>28000 - 35000/annum 28K-35K</option>
+				<option value=38165>28000 - 37000/annum 28,000 to 37,000</option>
+				<option value=28961>24000 per annum</option>
+				<option value=51666>36000 - 47000/annum 36-47K</option>
+				<option value=11609>16000 per annum + Live In</option>
+				<option value=35025>26000 per annum</option>
+				<option value=79492>From 28,000 to 35,000 per annum</option>
+				<option value=40184>30,000 per annum plus bonus and package</option>
+				<option value=32418>25000 - 40000/annum</option>
+				<option value=54977>40000 - 50000/annum</option>
+				<option value=21102>20000 - 30000/annum</option>
+				<option value=16060>18000 - 24000/annum plus commission OTE 50-60k</option>
+				<option value=16415>18000 per annum</option>
+				<option value=18275>19000 per annum + Tips</option>
+				<option value=21317>20000 - 40000/annum</option>
+				<option value=30667>25/hour</option>
+				<option value=13242>17000 - 19000/annum + Bonus</option>
+				<option value=13276>17000 - 19500/annum 17,000 - 17,500 + 2k Bonus</option>
+				<option value=7043>14000 - 18000/annum</option>
+				<option value=180>*11.22 per hour (Level 2 Coach) *13.33 per hour (Club Coach)</option>
+				<option value=3755>12.91 to 13.94 per hour</option>
+				<option value=70750>8.84 to 12.91 per hour</option>
+				<option value=64390>6.08 per hour</option>
+				<option value=86852>Salary package around 24,000</option>
+				<option value=28968>24000 per annum + Benefits+tips</option>
+				<option value=42351>30000 - 40000/annum</option>
+				<option value=32314>25000 - 35000/annum to 35K plus benefits</option>
+				<option value=36131>27000 - 30000/annum up to 30K</option>
+				<option value=31599>25000 - 30000/annum 25K-30K</option>
+				<option value=21132>20000 - 30000/annum 20K-30K</option>
+				<option value=55359>40000 - 60000/annum 40K-60K</option>
+				<option value=31732>25000 - 30000/annum Up to 30,000</option>
+				<option value=21124>20000 - 30000/annum 20,000 to 30,000</option>
+				<option value=56103>40000/annum OTE 40k + phone + expenses + hc</option>
+				<option value=9198>15000 - 25000/annum 15-25k basic, OTE year 1 28 - 25k</option>
+				<option value=54491>40000 - 45000/annum 40-45k + bonus, travel, phone</option>
+				<option value=2747>11000 - 20000/annum 11,000 OTE 20,000</option>
+				<option value=14> 20 - 25k Basic,  70 - 75K OTE+++</option>
+				<option value=10641>16,500 to 18,000</option>
+				<option value=42394>30000 - 40000/annum 30K to 40K + benefits</option>
+				<option value=52147>37000 - 47000/annum 37K to 47K + benefits</option>
+				<option value=58441>45000 - 52000/annum + Benefits</option>
+				<option value=90244>Up to 7.40 p.h. & Up to 46 Hours p.w.</option>
+				<option value=19448>20,500 per annum</option>
+				<option value=82406>From 40,000 to 45,000 per annum plus package</option>
+				<option value=13536>17000 per annum</option>
+				<option value=4486>12646 per annum + Benefits</option>
+				<option value=73584>From 14,000 to 16,000 per annum + Free Accommodation</option>
+				<option value=52224>37000/annum 37K to 47K + benefits</option>
+				<option value=42536>30000 - 40000/annum c3500 + excellent benefits</option>
+				<option value=21192>20000 - 30000/annum plus commission</option>
+				<option value=54210>40000 - 44000/annum</option>
+				<option value=45914>32000 - 41000/annum 32K to 41K + benefits</option>
+				<option value=24184>22,000 to 26,000 pa</option>
+				<option value=13949>17500 per annum</option>
+				<option value=18256>19000 per annum</option>
+				<option value=23398>21000 per annum</option>
+				<option value=6701>14.39 - 17.55/hour Shift Allowance</option>
+				<option value=40005>30,000 - 38,000 per year</option>
+				<option value=11591>16000 per annum</option>
+				<option value=28741>24000 - 29000/annum 24k - rising to 29k</option>
+				<option value=89726>Up to 45,000 plus excellent package</option>
+				<option value=25377>22000 per annum</option>
+				<option value=20710>20000 - 25000/annum 25K plus benefits</option>
+				<option value=78838>From 26,000 to 27,000 per annum live-in available, plus excellent be</option>
+				<option value=71669>90 - 140/day Excellent Rates of Pay</option>
+				<option value=90401>Upto 15,000 per annum + Tips</option>
+				<option value=14472>18,000 per annum + Tips (IRO 50 Per Week)</option>
+				<option value=73907>From 15,000 to 16,000 per annum Salary 15000 FREE LIVE IN quirky ga</option>
+				<option value=7006>14000 - 17000 per annum</option>
+				<option value=75087>From 18,000 to 20,000 per annum</option>
+				<option value=7169>14000 per annum + package</option>
+				<option value=47855>35,000 - 40,000</option>
+				<option value=47159>34,000</option>
+				<option value=45364>32,000 – 38,000</option>
+				<option value=6398>14,500 per annum</option>
+				<option value=64946>6.25 per hour</option>
+				<option value=81511>From 35,000 to 44,000 per annum Bonus, laptop, mobile etc</option>
+				<option value=10249>16,000 - 20,000 plus uncapped comms (depending upon experience)</option>
+				<option value=74295>From 16,000 to 17,000 per annum + Tips (IRO 3K Per Annum)</option>
+				<option value=62277>50000/annum C50,000 negotiable + pension</option>
+				<option value=53308>39000 - 46000/annum</option>
+				<option value=42076>30000 - 39000/annum</option>
+				<option value=11295>16000 - 19000 per annum</option>
+				<option value=12489>17,000 per annum + Paid Overtime</option>
+				<option value=74294>From 16,000 to 17,000 per annum + Tips</option>
+				<option value=11525>16000 - 25000/annum plus top commission / benefits</option>
+				<option value=81627>From 35,000 to 45,000 per annum Plus pension and healthcare</option>
+				<option value=40779>30-45000</option>
+				<option value=65891>6.80 per hour</option>
+				<option value=24982>22000 - 25000/annum Up to 25,000 + benefits</option>
+				<option value=33326>25000/annum c25k</option>
+				<option value=24375>22,500 per annum</option>
+				<option value=72738>Competitive base salary of 36,000, plus a joining award of 8,000</option>
+				<option value=81486>From 35,000 to 42,000 per annum plus bonus, pension etc</option>
+				<option value=77375>From 23,000 to 24,000 per annum</option>
+				<option value=49515>35000 - 45000/annum</option>
+				<option value=73386>From 13,000 to 15,000 per annum + Tips</option>
+				<option value=16486>18000 per annum + Tips</option>
+				<option value=19069>20,000 per annum</option>
+				<option value=8241>15,500 per annum</option>
+				<option value=55360>40000 - 60000/annum 40k plus comm Pension, Healthcare</option>
+				<option value=28942>24000 - 50000/annum Excellent Package</option>
+				<option value=36261>27000 - 35000/annum</option>
+				<option value=15962>18000 - 23000/annum 18K TO 23K BASIC, OTE 45K + BENEFIT</option>
+				<option value=12491>17,000 per annum + Tips</option>
+				<option value=3593>12.50 - 13 per hour</option>
+				<option value=22615>21,000 + Uncapped Commission + Pool Cars</option>
+				<option value=72125>Basic salaries range from 50,000 to 90,000 + Commission.</option>
+				<option value=32153>25000 - 35000/annum</option>
+				<option value=58392>45000 - 50000/annum c45000 + Car + Good Benefits</option>
+				<option value=13563>17000 per annum + Tips</option>
+				<option value=27208>23000 per annum</option>
+				<option value=79290>From 28,000 to 30,000 per annum</option>
+				<option value=32662>25000 per annum</option>
+				<option value=67323>63,000 - 70,000 per year</option>
+				<option value=962>10,000+</option>
+				<option value=65463>6.50 p/h + commission</option>
+				<option value=68049>7 p/h</option>
+				<option value=64258>6 - 6.50 p/h</option>
+				<option value=60542>5.25 - 6.11 p/h</option>
+				<option value=7386>14475 - 20280/annum + Sats</option>
+				<option value=12049>16500 per annum + Tips</option>
+				<option value=26916>23000 - 26000/annum</option>
+				<option value=87314>To 55k plus excellent benefits</option>
+				<option value=1432>10.79 - 15.10/hour 15.10 p.hr</option>
+				<option value=2531>11.78/hour 11.78 p.hr + overtime</option>
+				<option value=2895>12 - 13/hour 12 - 13 p.hr d.o.e</option>
+				<option value=15844>18000 - 22000/annum 18-20K + Overtime</option>
+				<option value=53626>40,000 - 50,000 plus package</option>
+				<option value=41583>30000 - 35000/annum</option>
+				<option value=73926>From 15,000 to 17,000 per annum + Tips</option>
+				<option value=65217>6.43 per hour</option>
+				<option value=64967>6.25 to 8.60 per hour</option>
+				<option value=2284>11.00 to 12.50 per hour</option>
+				<option value=16782>18000.00 per year</option>
+				<option value=65592>6.54 per hour</option>
+				<option value=2444>11.50 to 12.50 per hour</option>
+				<option value=3567>12.40 per hour</option>
+				<option value=43741>30000.00 per year</option>
+				<option value=62249>50000.00 per year</option>
+				<option value=35170>26000.00 per year</option>
+				<option value=36722>27500.00 per year</option>
+				<option value=43221>30000 per year</option>
+				<option value=36408>27000 per year</option>
+				<option value=55666>40000 per year</option>
+				<option value=5291>13.50 per hour</option>
+				<option value=3632>12.50 per hour</option>
+				<option value=5205>13.16 per hour</option>
+				<option value=3446>12.00 per hour</option>
+				<option value=40209>30,000 to 31,000 per year</option>
+				<option value=5176>13.00 to 18.00 per hour</option>
+				<option value=3646>12.50 to 17.50 per hour</option>
+				<option value=69093>7.50 to 8.00 per hour</option>
+				<option value=68419>7.00 to 8.50 per hour</option>
+				<option value=2071>11 to 12.5 per hour</option>
+				<option value=2072>11 to 12.50 per hour</option>
+				<option value=2437>11.50 per hour</option>
+				<option value=2985>12 to 13 per hour</option>
+				<option value=30055>25,000 to 35,000 per year</option>
+				<option value=30058>25,000 to 40,000 per year</option>
+				<option value=4660>13 to 13.50 per hour</option>
+				<option value=2276>11.00 per hour</option>
+				<option value=35175>26000.00 to 30000.00 per year</option>
+				<option value=46159>32000.00 per year</option>
+				<option value=36533>27000.00 per year</option>
+				<option value=35347>26500.00 per year</option>
+				<option value=48399>35.00 per hour</option>
+				<option value=91889>to 35.00 per hour</option>
+				<option value=30335>25,500 to 33,500 per year</option>
+				<option value=3464>12.00 to 13.00 per hour</option>
+				<option value=53764>40,000 to 45,000 per year</option>
+				<option value=68076>7 per hour to 8.50 per hour per hour</option>
+				<option value=1984>10p/hr to 11p/hr per hour</option>
+				<option value=930>10 to 11 per hour</option>
+				<option value=70996>8p/hr to 9p/hr per hour</option>
+				<option value=932>10 to 12 per hour</option>
+				<option value=23452>21000 to 32000 per year</option>
+				<option value=19709>20.00 to 30.00 per hour</option>
+				<option value=24591>22.00 to 28.00 per hour</option>
+				<option value=12530>17,000 to 21,000 per year</option>
+				<option value=68402>7.00 to 12.00 per hour</option>
+				<option value=68409>7.00 to 35.00 per hour</option>
+				<option value=91881>to 35 per hour</option>
+				<option value=68425>7.00 to Competitive per hour</option>
+				<option value=2446>11.50 to 35 per hour</option>
+				<option value=65521>6.50 to 13.00 per hour</option>
+				<option value=3740>12.82 to 15.52 per hour</option>
+				<option value=64416>6.10 to 6.25 per hour</option>
+				<option value=19358>20,036 to 26,320 per year</option>
+				<option value=65536>6.50 to 8.30 per hour</option>
+				<option value=68607>7.19 to 10.57 per hour</option>
+				<option value=32814>25000 to 28000 per year</option>
+				<option value=70487>8.49 to 9.56 per hour</option>
+				<option value=32830>25000 to 30000 per year</option>
+				<option value=64371>6.00 to 7.00 per hour</option>
+				<option value=65570>6.51 to 9.58 per hour</option>
+				<option value=51397>36,000 per year</option>
+				<option value=34410>26,500 to 27,000 per year</option>
+				<option value=45496>32,614 to 36,096 per year</option>
+				<option value=51702>36000 to 37700 per year</option>
+				<option value=68577>7.15 to 8.50 per hour</option>
+				<option value=70378>8.25 to 9.25 per hour</option>
+				<option value=71264>9.00 per hour</option>
+				<option value=69099>7.50 to 9.50 per hour</option>
+				<option value=14252>18 per hour per hour</option>
+				<option value=69193>7.60 to 9.90 per hour</option>
+				<option value=68077>7 to 10 per hour</option>
+				<option value=27926>24,000 to 27,000 per year</option>
+				<option value=24192>22,000 to 30,000 per year</option>
+				<option value=4661>13 to 14 per hour</option>
+				<option value=68590>7.17 to 9.00 per hour</option>
+				<option value=43261>30000 to 35000 per year</option>
+				<option value=43243>30000 to 34000 per year</option>
+				<option value=5173>13.00 to 14.00 per hour</option>
+				<option value=68396>7.00 to 10.00 per hour</option>
+				<option value=69129>7.51 to 10.19 per hour</option>
+				<option value=69130>7.51 to 8.43 per hour</option>
+				<option value=50208>35000 to 40000 per year</option>
+				<option value=28062>24,400 per year</option>
+				<option value=28287>24.00 to 26.00 per hour</option>
+				<option value=18838>20 to 30 per hour</option>
+				<option value=1198>10.00 to 15.00 per hour</option>
+				<option value=938>10 to 15 per hour</option>
+				<option value=69915>8 to 10 per hour</option>
+				<option value=6651>14.00 to 15.00 per hour</option>
+				<option value=26649>23.00 to 24.00 per hour</option>
+				<option value=68422>7.00 to 9.00 per hour</option>
+				<option value=38396>28000 to 30000 per year</option>
+				<option value=71687>90 per day to 120 per day per year</option>
+				<option value=64400>6.08 to 8.00 per hour</option>
+				<option value=64285>6 to 8 per hour</option>
+				<option value=64374>6.00 to 8.00 per hour</option>
+				<option value=5163>13.00 per hour</option>
+				<option value=64403>6.08 to 9.00 per hour</option>
+				<option value=5303>13.50 to 25.00 per hour</option>
+				<option value=5302>13.50 to 25 per hour</option>
+				<option value=69097>7.50 to 9.00 per hour</option>
+				<option value=37102>28,000 to 36,000 per year</option>
+				<option value=65897>6.80 to 7.15 per hour</option>
+				<option value=36415>27000 to 28000 per year</option>
+				<option value=68423>7.00 to 9.25 per hour</option>
+				<option value=68588>7.17 per hour</option>
+				<option value=70612>8.50 to 15.98 per hour</option>
+				<option value=12971>17.00 to 27.20 per hour</option>
+				<option value=65522>6.50 to 13.50 per hour</option>
+				<option value=65524>6.50 to 35.00 per hour</option>
+				<option value=65519>6.50 to 10.50 per hour</option>
+				<option value=65523>6.50 to 35 per hour</option>
+				<option value=18285>19000 per year</option>
+				<option value=51699>36000 per year</option>
+				<option value=34140>26 to 31 per hour</option>
+				<option value=89284>Up to 35.00 per hour</option>
+				<option value=65467>6.50 per hour</option>
+				<option value=71276>9.00 per hour per hour</option>
+				<option value=68578>7.15 to 9.00 per hour</option>
+				<option value=64965>6.25 to 6.70 per hour</option>
+				<option value=65537>6.50 to 8.50 per hour</option>
+				<option value=69083>7.50 to 11.50 per hour</option>
+				<option value=14256>18 to 20 per hour</option>
+				<option value=70611>8.50 to 13.34 per hour</option>
+				<option value=12977>17.00ph to 27.20ph per hour</option>
+				<option value=10880>16.00ph to 22.00ph per hour</option>
+				<option value=2447>11.50 to 35.00 per hour</option>
+				<option value=29676>25 per hour</option>
+				<option value=68903>7.49 to 9.90 per hour</option>
+				<option value=3468>12.00 to 37.91 per hour</option>
+				<option value=68651>7.20 to 9.00 per hour</option>
+				<option value=29010>24000 to 26000 per year</option>
+				<option value=24186>22,000 to 26,000 per year</option>
+				<option value=51704>36000 to 38000 per year</option>
+				<option value=14251>18 per hour</option>
+				<option value=64068>56000USD per year</option>
+				<option value=71284>9.00 to 15.00 per hour</option>
+				<option value=66905>60000 per year</option>
+				<option value=5177>13.00 to 24.00 per hour</option>
+				<option value=22703>21,000 to 23,000 per year</option>
+				<option value=68902>7.49 to 9.00 per hour</option>
+				<option value=69081>7.50 to 10.00 per hour</option>
+				<option value=70187>8.00 to 10.00 per hour</option>
+				<option value=7790>15 to 18 per hour</option>
+				<option value=18836>20 to 26 per hour</option>
+				<option value=2283>11.00 to 12.00 per hour</option>
+				<option value=68082>7 to 12 per hour</option>
+				<option value=65520>6.50 to 11.50 per hour</option>
+				<option value=65073>6.30 to 8.30 per hour</option>
+				<option value=70151>8.00 per hour</option>
+				<option value=68650>7.20 to 9 per hour</option>
+				<option value=65899>6.80 to 8.36 per hour</option>
+				<option value=70428>8.36 per hour</option>
+				<option value=68873>7.45 to 11.17 per hour</option>
+				<option value=70584>8.50 per hour</option>
+				<option value=3719>12.77 per hour</option>
+				<option value=10868>16.00 per hour</option>
+				<option value=26648>23.00 per hour</option>
+				<option value=30619>25.00 to 29.00 per hour</option>
+				<option value=68901>7.49 to 10.00 per hour</option>
+				<option value=2443>11.50 to 12.00 per hour</option>
+				<option value=2972>12 per hour</option>
+				<option value=52904>38000 to 40000 per year</option>
+				<option value=35063>26000 to 28000 per year</option>
+				<option value=46894>33000 to 35000 per year</option>
+				<option value=68492>7.05 to 9.05 per hour</option>
+				<option value=52425>38,000 to 40,000 per year</option>
+				<option value=8561>15.15 to 16.65 per hour</option>
+				<option value=5175>13.00 to 15.00 per hour</option>
+				<option value=68420>7.00 to 8.50 per hour to Up to 16.00 per hour (bank Holidays) per hour</option>
+				<option value=5174>13.00 to 14.50 per hour</option>
+				<option value=57800>45,000 per year</option>
+				<option value=57813>45,000 to 50,000 per year</option>
+				<option value=36873>27k to 30k per year</option>
+				<option value=64398>6.08 to 7 per hour</option>
+				<option value=64262>6 - 7.50 per hour</option>
+				<option value=64401>6.08 to 8.50 per hour</option>
+				<option value=64428>6.16 per hour</option>
+				<option value=55701>40000 to 45000 per year</option>
+				<option value=25501>22000 to 29000 per year</option>
+				<option value=17050>18500 to 28000 per year</option>
+				<option value=8546>15.00 to 40.00 per hour</option>
+				<option value=10165>16 to 25 per hour</option>
+				<option value=7794>15 to 25 per hour</option>
+				<option value=69366>7.85 per hour</option>
+				<option value=65001>6.28 to 6.58 per hour</option>
+				<option value=69094>7.50 to 8.40 per hour</option>
+				<option value=68576>7.15 to 8.15 per hour</option>
+				<option value=70754>8.86 per hour</option>
+				<option value=68564>7.14 to 8.50 per hour</option>
+				<option value=68575>7.15 to 8.00 per hour</option>
+				<option value=68589>7.17 to 8.20 per hour</option>
+				<option value=68079>7 to 11 per hour</option>
+				<option value=65677>6.63 to 10 per hour</option>
+				<option value=68352>7.00 per hour</option>
+				<option value=70776>8.93 per hour</option>
+				<option value=43240>30000 to 33000 per year</option>
+				<option value=23994>22 to 27 per hour</option>
+				<option value=70613>8.50 to 16.00 per hour</option>
+				<option value=68664>7.21 per hour</option>
+				<option value=68563>7.14 per hour</option>
+				<option value=21560>20000 to 23000 per year</option>
+				<option value=3467>12.00 to 35.00 per hour</option>
+				<option value=3647>12.50 to 35.00 per hour</option>
+				<option value=71412>9.39 per hour</option>
+				<option value=57076>42000 to 44000 per year</option>
+				<option value=71082>9 to 11 per hour</option>
+
+		</select>
+	</div>
+	<br>  
+  	<div class="form-group">					
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </div>
+    </form>
+
+   <br>
+   <br>
+
+</div>
+</div>
+
+ </div>
+</div>
+</div>
+
+</body>
+</html>
